@@ -196,7 +196,7 @@
                       </div>
                     </div>
                   </div>
-                  <button class="btn btn-success btn-block">New Project
+                  <button class="btn btn-success btn-block" onclick="window.location.href='{{url_for('product_api.register')}}';">New Product
                     <i class="mdi mdi-plus"></i>
                   </button>
                 </div>
@@ -229,7 +229,18 @@
 
           <div class="main-panel">
             <div class="content-wrapper">
-                {% block content %}{% endblock %}
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                  <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                        {{ message }}
+                      </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+              {% block content %}{% endblock %}
             </div>
 
             <footer class="footer">
