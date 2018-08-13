@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, flash, redirect, url_for
-from product.forms import ProductRegisterForm
+from productmanager.product.forms import ProductRegisterForm
 import os
 
 product_api = Blueprint('product_api', __name__, template_folder='templates')
