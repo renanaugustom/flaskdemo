@@ -1,6 +1,7 @@
-from flask import render_template
-from productmanager import app
+from flask import render_template, Blueprint
 
-@app.route("/")
+home_api = Blueprint('home_api', __name__, template_folder='templates')
+
+@home_api.route("/")
 def hello():
     return "Hello World!"
