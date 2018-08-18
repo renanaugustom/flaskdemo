@@ -2,11 +2,15 @@ from flask import Blueprint, render_template, flash, redirect, url_for
 from productmanager import db, bcrypt
 from productmanager.user.models import User
 from productmanager.user.forms import UserRegisterForm
+from flask_login import current_user
 
 user_api = Blueprint('user_api', __name__, template_folder='templates')
 
 @user_api.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('product_api.home'))
+
     form = UserRegisterForm()
 
     if form.validate_on_submit():

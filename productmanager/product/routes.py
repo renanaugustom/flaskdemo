@@ -1,13 +1,16 @@
 from flask import Blueprint, render_template, flash, redirect, url_for
 from productmanager.product.forms import ProductRegisterForm
+from flask_login import login_required
 
 product_api = Blueprint('product_api', __name__, template_folder='templates')
 
 @product_api.route('/')
+@login_required
 def home():
     return render_template('products.html')
 
 @product_api.route('/register', methods=['GET', 'POST'])
+@login_required
 def register():
     form = ProductRegisterForm()
 
