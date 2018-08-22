@@ -1,5 +1,5 @@
 from productmanager import db
-from flask import Blueprint, render_template, flash, redirect, url_for
+from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import login_required
 from productmanager.product.forms import ProductRegisterForm
 from productmanager.product.models import Product
@@ -9,7 +9,9 @@ product_api = Blueprint('product_api', __name__, template_folder='templates')
 @product_api.route('/')
 @login_required
 def home():
-    return render_template('products.html')
+    page = request.args.get('page', 1, type=int)
+    products = Product.query.order_by(Product.date_created.desc()).paginate(page=page, per_page=5)
+    return render_template('products.html', products=products)
 
 @product_api.route('/register', methods=['GET', 'POST'])
 @login_required
