@@ -9,3 +9,7 @@ class Product(db.Model):
 
     def __repr__(self):
         return f"Product('{self.name}')"
+
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description

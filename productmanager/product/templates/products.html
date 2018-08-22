@@ -1,25 +1,89 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="row">
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-            <div class="card card-statistics">
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+        <div class="card card-statistics">
             <div class="card-body">
                 <div class="clearfix">
-                <div class="float-left">
-                    <i class="mdi mdi-cube text-danger icon-lg"></i>
-                </div>
-                <div class="float-right">
-                    <p class="mb-0 text-right">Total Products</p>
-                    <div class="fluid-container">
-                    <h3 class="font-weight-medium text-right mb-0">65</h3>
+                    <div class="float-left">
+                        <i class="mdi mdi-cube text-danger icon-lg"></i>
+                    </div>
+                    <div class="float-right">
+                        <p class="mb-0 text-right">Total Products</p>
+                        <div class="fluid-container">
+                            <h3 class="font-weight-medium text-right mb-0">65</h3>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <p class="text-muted mt-3 mb-0">
-                <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 5 new products in last week
-                </p>
-            </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Product
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Creation Date
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ice Cream</td>
+                                <td> $77.99</td>
+                                <td>May 15, 2015</td>
+                            </tr>
+                            <tr>
+                                <td>Ice Cream</td>
+                                <td> $77.99</td>
+                                <td>May 15, 2015</td>
+                            </tr>
+                            <tr>
+                                <td>Ice Cream</td>
+                                <td> $77.99</td>
+                                <td>May 15, 2015</td>
+                            </tr>
+                            <tr>
+                                <td>Ice Cream</td>
+                                <td> $77.99</td>
+                                <td>May 15, 2015</td>
+                            </tr>
+                            <tr>
+                                <td>Ice Cream</td>
+                                <td> $77.99</td>
+                                <td>May 15, 2015</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 10px">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
