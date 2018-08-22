@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
 
     def __repr__(self):
-        return f"User('{self.name}', '(self.email)')"
+        return f"User('{self.name}', '{self.email}')"
 
     def __init__(self, email, name, password):
         self.name = name

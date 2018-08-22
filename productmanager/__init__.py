@@ -10,12 +10,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///products.db'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'home_api.login'
 login_manager.login_message_category = 'danger'
 
-from productmanager.routes import home_api
+from productmanager import models
+
+from productmanager.main.routes import home_api
 from productmanager.product.routes import product_api
 from productmanager.user.routes import user_api
 

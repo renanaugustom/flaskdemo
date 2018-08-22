@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from productmanager import db, bcrypt
-from productmanager.forms import LoginForm
+from productmanager.main.forms import LoginForm
 from productmanager.user.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 
