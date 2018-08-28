@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, flash, redirect, url_for
+from flask import Blueprint, render_template, flash, redirect, url_for, request
 from productmanager import db, bcrypt
 from productmanager.user.models import User
-from productmanager.user.forms import UserRegisterForm
+from productmanager.user.forms import UserRegisterForm, UserUpdateForm
 from flask_login import current_user
 
 user_api = Blueprint('user_api', __name__, template_folder='templates')
@@ -22,3 +22,17 @@ def register():
         return redirect(url_for('home_api.login'))
 
     return render_template('register.html', title='Register Account', form = form)
+
+@user_api.route('/update', methods=['GET', 'POST'])
+def update():
+    form = UserUpdateForm()
+    if form.validate_on_submit():
+        current_user.name = form.name.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your account has been updated!', 'success')
+    elif request.method == 'GET':
+        form.name.data = current_user.name
+        form.email.data = current_user.email
+
+    return render_template('update.html', title='Update Account', form = form)

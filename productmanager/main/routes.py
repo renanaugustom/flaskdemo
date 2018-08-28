@@ -9,7 +9,7 @@ home_api = Blueprint('home_api', __name__, template_folder='templates')
 @home_api.route("/")
 @login_required
 def hello():
-    return "Hello World!"
+    return redirect(url_for('product_api.home'))
 
 @home_api.route('/login', methods=['GET', 'POST'])
 def login():
